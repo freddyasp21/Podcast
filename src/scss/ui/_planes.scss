@@ -1,0 +1,97 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.planes {
+  background-color: v.$secundario;
+
+  h2 {
+    @include m.headingBorder(v.$blanco, v.$primario);
+  }
+
+  .descripcion {
+    color: v.$blanco;
+  }
+}
+
+.nuestros-planes {
+  display: flex;
+  flex-direction: column;
+  @include m.tablet {
+    flex-direction: row;
+    max-width: 80rem;
+    margin: 10rem auto 0 auto;
+  }
+  .plan {
+    flex-grow: 1;
+    background-color: v.$blanco;
+    padding: 16rem 4rem 4rem 4rem;
+    border-bottom: 1px solid #e1e1e1;
+    @include m.tablet {
+      border: none;
+      transition: transform 300ms;
+      -webkit-transition: transform 300ms;
+      -moz-transition: transform 300ms;
+      -ms-transition: transform 300ms;
+      -o-transition: transform 300ms;
+
+      &:hover {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+      }
+    }
+
+    .precio {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .listado {
+      li {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.inicio {
+      @include m.iconoBg("/build/img/icono_inicio.svg");
+
+      .boton-inicio {
+        @include m.tablet {
+          margin-top: 6rem;
+        }
+      }
+    }
+
+    &.negocio {
+      order: -1;
+      background-color: v.$primario;
+      @include m.iconoBg("/build/img/icono_negocio.svg");
+      @include m.tablet {
+        order: unset;
+        margin-top: -5rem;
+        margin-bottom: -5rem;
+        border-radius: 2rem;
+        -webkit-border-radius: 2rem;
+        -moz-border-radius: 2rem;
+        -ms-border-radius: 2rem;
+        -o-border-radius: 2rem;
+        background-position: 50% 7rem;
+        padding-top: calc(16rem + 5rem);
+        z-index: 100;
+      }
+    }
+
+    &.pro {
+      @include m.iconoBg("/build/img/icono_pro.svg");
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.beneficios {
+  background-color: v.$primario;
+
+  .grid-beneficios {
+    @include m.tablet {
+      @include m.grid(5, 4rem);
+      align-items: center;
+    }
+  }
+
+  .contenido-beneficios {
+    grid-column: 1 / 4;
+    h2{
+        @include m.headingBorder(v.$secundario, v.$blanco)
+    }
+  }
+
+  .imagen {
+    grid-column: 4 / 6;
+    transition: transform 300ms;
+    -webkit-transition: transform 300ms;
+    -moz-transition: transform 300ms;
+    -ms-transition: transform 300ms;
+    -o-transition: transform 300ms;
+
+    &:hover {
+        transform: rotate(8deg) scale(1.1);
+        -webkit-transform: rotate(8deg) scale(1.1);
+        -moz-transform: rotate(8deg) scale(1.1);
+        -ms-transform: rotate(8deg) scale(1.1);
+        -o-transform: rotate(8deg) scale(1.1);
+      }
+  }
+}
